@@ -66,8 +66,26 @@ paths:
       responses:
         '200':
           description: Superhéroe creado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Superhéroe creado exitosamente"
+                  data:
+                    $ref: '#/components/schemas/Superheroe'
         '400':
           description: Faltan campos obligatorios
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Faltan campos obligatorios: Nombre, Altura, Poder"
 
     delete:
       summary: Eliminar un superhéroe
